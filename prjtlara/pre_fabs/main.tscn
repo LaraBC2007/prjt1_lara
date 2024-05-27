@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfhutb0vblvdk"]
+
+[ext_resource type="Texture2D" uid="uid://cygv6va07a827" path="res://assets/player_idle-01.png" id="1_bm1r5"]
+[ext_resource type="Texture2D" uid="uid://pprymfll6xm8" path="res://assets/player_idle-02.png" id="2_a3dyv"]
+[ext_resource type="Texture2D" uid="uid://2hytw5mf332" path="res://assets/player_idle-03.png" id="3_l2ul0"]
+[ext_resource type="Texture2D" uid="uid://ders0i18yuvii" path="res://assets/player_move-01.png" id="4_hmvhp"]
+[ext_resource type="Texture2D" uid="uid://ddhvkm02crdyg" path="res://assets/player_move-02.png" id="5_bfr35"]
+[ext_resource type="Texture2D" uid="uid://suwb8m78h7ty" path="res://assets/player_down-01.png" id="6_jq0n3"]
+[ext_resource type="Texture2D" uid="uid://h272s26e08hc" path="res://assets/player_down-02.png" id="7_qfy34"]
+[ext_resource type="Texture2D" uid="uid://bv22jkmqp6855" path="res://assets/player_up-01.png" id="8_pjj5i"]
+[ext_resource type="Texture2D" uid="uid://dil2qiwuadvwv" path="res://assets/player_up-02.png" id="9_xkgwm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eagi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcxdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bm1r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a3dyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l2ul0")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hmvhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bfr35")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jq0n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qfy34")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pjj5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xkgwm")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="player"]
+shape = SubResource("CircleShape2D_6eagi")
+debug_color = Color(1, 0.140289, 0.228761, 0.42)
+
+[node name="anim" type="AnimatedSprite2D" parent="player"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qcxdp")
+animation = &"idle"
+autoplay = "idle"

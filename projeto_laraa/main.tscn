@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cfjorka5emao4"]
+[gd_scene load_steps=2 format=3 uid="uid://cfjorka5emao4"]
+
+[ext_resource type="PackedScene" uid="uid://bc2fmeyg2un7m" path="res://pré_fabc/player.tscn" id="1_45tnq"]
 
 [node name="main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_45tnq")]
